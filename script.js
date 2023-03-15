@@ -40,6 +40,7 @@ const createNoteView = (note) => {
 }
 
 const cancelEdit = (noteDiv) => {
+	
 	const titleP = noteDiv.querySelector('b.title');
 	titleP.contentEditable = false;
 	const bodyP = noteDiv.querySelector('p.body');
@@ -49,8 +50,8 @@ const cancelEdit = (noteDiv) => {
 	const deleteButton = noteDiv.querySelector('button.delete');
 	deleteButton.innerHTML = 'Delete Note';
 	const note = notes.find(note => note.id == noteDiv.id);
-	titleP.innerHTML = notes.title;
-	bodyP.innerHTML = notes.body;
+	titleP.innerHTML = note.title;
+	bodyP.innerHTML = note.body;
 	editButton.onclick = () => editNote(noteDiv);
 	deleteButton.onclick = () => deleteNote(noteDiv);
 }
